@@ -144,6 +144,21 @@ public:
       std::cout << "\n\n";
    } // end function print
 
+   void concatenate(List< NODETYPE > &listToConcat) {
+
+	   // sets the next pointer of the last element of the current list
+	   // to point to the first element of the list to concatenate
+	   lastPtr->nextPtr = listToConcat.firstPtr;
+
+	   // sets the last pointer of the current list to the last element
+	   // of the list to concatenate
+	   lastPtr = listToConcat.lastPtr;
+
+	   // empty the list to concatenate
+	   listToConcat.firstPtr = nullptr;
+	   listToConcat.lastPtr = nullptr;
+   }
+
 private:
    ListNode< NODETYPE > *firstPtr; // pointer to first node
    ListNode< NODETYPE > *lastPtr; // pointer to last node
