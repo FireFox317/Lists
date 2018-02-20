@@ -38,8 +38,48 @@ public:
       postOrderHelper( rootPtr ); 
    } // end function postOrderTraversal
 
+   TreeNode< NODETYPE >* search(NODETYPE value) {
+
+	   TreeNode< NODETYPE >* currentNode = rootPtr;
+
+	   while (currentNode != nullptr) {
+		   if (value == currentNode->data) {
+			   return currentNode;
+		   }
+		   else if (value < currentNode->data) {
+			   currentNode = currentNode->leftPtr;
+		   }
+		   else {
+			   currentNode = currentNode->rightPtr;
+		   }
+	   }
+	   return nullptr;
+   }
+
+   void outputTree() {
+	   outputTreeHelper(rootPtr, 0);
+   }
+
+   void outputTreeHelper(TreeNode< NODETYPE >* currentNode, int space) {
+
+	   if (currentNode == nullptr)
+		   return;
+
+	   space += COUNT;
+
+	   outputTreeHelper(currentNode->rightPtr, space);
+
+	   for (int i = COUNT; i < space; i++) {
+		   std::cout << " ";
+	   }
+	   std::cout << currentNode->data << "\n";
+
+	   outputTreeHelper(currentNode->leftPtr, space);
+   }
+
 private:
    TreeNode< NODETYPE > *rootPtr;
+   const int COUNT = 5;
 
    // utility function called by insertNode; receives a pointer
    // to a pointer so that the function can modify pointer's value
@@ -97,6 +137,7 @@ private:
          std::cout << ptr->data << ' '; // process node                  
       } // end if
    } // end function postOrderHelper
+
 }; // end class Tree
 
 #endif
