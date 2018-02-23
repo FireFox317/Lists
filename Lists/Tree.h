@@ -1,3 +1,11 @@
+//==============================================================
+// Filename : Tree.h
+// Authors : Timon Kruiper & Dang Dinh Viet Anh
+// Version : 1
+// License :
+// Description : Header file containing Tree class
+//==============================================================
+
 // Fig. 19.22: Tree.h
 // Template Tree class definition.
 #ifndef TREE_H
@@ -38,10 +46,12 @@ public:
       postOrderHelper( rootPtr ); 
    } // end function postOrderTraversal
 
+   // This function searches the Tree for a value and returns the pointer to the node
+   // if it is found and otherwise returns a nullptr.
    TreeNode< NODETYPE >* search(NODETYPE value) {
-
 	   TreeNode< NODETYPE >* currentNode = rootPtr;
 
+	   // While we are not at the end of the tree, keep on searching
 	   while (currentNode != nullptr) {
 		   if (value == currentNode->data) {
 			   return currentNode;
@@ -56,19 +66,26 @@ public:
 	   return nullptr;
    }
 
+   // Uses the outputTreeHelper to recursively print the tree
    void outputTree() {
 	   outputTreeHelper(rootPtr, 0);
    }
 
-   void outputTreeHelper(TreeNode< NODETYPE >* currentNode, int space) {
+private:
+   TreeNode< NODETYPE > *rootPtr;
+   const int COUNT = 5;
 
-	   if (currentNode == nullptr)
+   // This function is recusively being called to print the tree
+   void outputTreeHelper(TreeNode< NODETYPE >* currentNode, int space) {
+	   if (currentNode == nullptr) // End of tree reached
 		   return;
 
 	   space += COUNT;
 
+	   // First go to the right, since the right hand side of the tree has to be printed first
 	   outputTreeHelper(currentNode->rightPtr, space);
 
+	   // Print spaces depending on how 'deep' we are in the tree
 	   for (int i = COUNT; i < space; i++) {
 		   std::cout << " ";
 	   }
@@ -76,10 +93,6 @@ public:
 
 	   outputTreeHelper(currentNode->leftPtr, space);
    }
-
-private:
-   TreeNode< NODETYPE > *rootPtr;
-   const int COUNT = 5;
 
    // utility function called by insertNode; receives a pointer
    // to a pointer so that the function can modify pointer's value

@@ -1,3 +1,11 @@
+//==============================================================
+// Filename : TreeNode.h
+// Authors : Timon Kruiper & Dang Dinh Viet Anh
+// Version : 1
+// License :
+// Description : Header file containing TreeNode class
+//==============================================================
+
 // Fig. 19.21: TreeNode.h
 // Template TreeNode class definition.
 #ifndef TREENODE_H
