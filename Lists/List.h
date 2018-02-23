@@ -1,3 +1,11 @@
+//==============================================================
+// Filename : List.h
+// Authors : Timon Kruiper & Dang Dinh Viet Anh
+// Version : 1
+// License :
+// Description : Header file containing List class
+//==============================================================
+
 // Fig. 19.5: List.h
 // Template List class definition.
 #ifndef LIST_H
@@ -144,6 +152,7 @@ public:
       std::cout << "\n\n";
    } // end function print
 
+   // concatenates a list passed in the function to the current list
    void concatenate(List< NODETYPE > &listToConcat) {
 
 	   // sets the next pointer of the last element of the current list

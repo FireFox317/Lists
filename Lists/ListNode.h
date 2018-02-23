@@ -1,3 +1,11 @@
+//==============================================================
+// Filename : ListNode.h
+// Authors : Timon Kruiper & Dang Dinh Viet Anh
+// Version : 1
+// License :
+// Description : Header file containing ListNode class
+//==============================================================
+
 // Fig. 19.4: ListNode.h
 // Template ListNode class definition.
 #ifndef LISTNODE_H
