@@ -160,8 +160,10 @@ public:
 	   lastPtr->nextPtr = listToConcat.firstPtr;
 
 	   // sets the last pointer of the current list to the last element
-	   // of the list to concatenate
-	   lastPtr = listToConcat.lastPtr;
+	   // of the list to concatenate, this can only be executed if the
+	   // list to concatenate is not empty
+	   if(!listToConcat.isEmpty()) 
+		   lastPtr = listToConcat.lastPtr;
 
 	   // empty the list to concatenate
 	   listToConcat.firstPtr = nullptr;
